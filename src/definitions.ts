@@ -1,5 +1,7 @@
 export interface WifiPlugin {
   getIP(): Promise<{ ip: string | null }>;
+  /** android only */
+  getAllIP(): Promise<string[]>;
   getSSID(): Promise<{ ssid: string | null }>;
   connect(options: {
     ssid: string,

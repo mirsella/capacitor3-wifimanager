@@ -44,6 +44,15 @@ public class Wifi extends Plugin {
     }
 
     @PluginMethod()
+    public void getAllIP(PluginCall call) {
+      if (API_VERSION >= 23 && getPermissionState("fineLocation") != PermissionState.GRANTED) {
+        requestPermissionForAlias("fineLocation", call, "accessFineLocation");
+      } else {
+        this.wifiService.getAllIP(call);
+      }
+    }
+
+    @PluginMethod()
     public void getSSID(PluginCall call) {
         if (getPermissionState("fineLocation") != PermissionState.GRANTED) {
             requestPermissionForAlias("fineLocation", call, "accessFineLocation");

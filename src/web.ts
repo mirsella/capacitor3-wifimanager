@@ -6,6 +6,10 @@ export class WifiWeb extends WebPlugin implements WifiPlugin {
   async getIP(): Promise<{ ip: string | null }> {
     return { ip: null };
   }
+
+  async getAllIP(): Promise<string[]> {
+    return [];
+  }
   
   async getSSID(): Promise<{ssid: string | null}> {
     return { ssid: null }

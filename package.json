@@ -1,12 +1,12 @@
 {
   "name": "@capacitor-community/wifi",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Wifi Plugin for iOS, Android and Electron",
   "main": "dist/plugin.cjs.js",
   "module": "dist/esm/index.js",
   "types": "dist/esm/index.d.ts",
   "unpkg": "dist/plugin.js",
-  "author": "Dirk Gausmann",
+  "author": "Dirk Gausmann, forked by mirsella",
   "license": "MIT",
   "scripts": {
     "verify": "npm run verify:ios && npm run verify:android && npm run verify:web",
@@ -77,10 +77,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Frtrillo/capacitor3-wifimanager.git"
+    "url": "git+https://github.com/mirsella/capacitor3-wifimanager.git"
   },
   "bugs": {
-    "url": "https://github.com/Frtrillo/capacitor3-wifimanager/issues"
+    "url": "https://github.com/mirsella/capacitor3-wifimanager/issues"
   },
   "dependencies": {
     "node-wifi": "~2.0.15"
@@ -88,5 +88,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "homepage": "https://github.com/Frtrillo/capacitor3-wifimanager#readme"
+  "homepage": "https://github.com/mirsella/capacitor3-wifimanager#readme"
 }

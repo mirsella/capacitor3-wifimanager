@@ -34,6 +34,10 @@ export class Wifi implements WifiPlugin {
     return { ip };
   }
 
+  async getAllIP(): Promise<string[]> {
+    return []
+  }
+
   async getSSID(): Promise<{ ssid: string | null }> {
     const currentConnections: Network[] = await nodeWifi.getCurrentConnections().catch(() => [] as Network[]);
     if (!currentConnections && !currentConnections[0]) throw new Error('ERROR_NO_NETWORK_FOUND');

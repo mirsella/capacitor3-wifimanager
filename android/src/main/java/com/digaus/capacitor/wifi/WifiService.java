@@ -1,5 +1,7 @@
 package com.digaus.capacitor.wifi;
 
+import java.net.NetworkInterface;
+import java.net.InetAddress;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -27,6 +29,9 @@ import com.getcapacitor.PluginCall;
 
 import java.util.List;
 import java.util.Locale;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class WifiService {
     private static String TAG = "WifiService";
@@ -62,6 +67,30 @@ public class WifiService {
         } else {
             call.reject("NO_VALID_IP_IDENTIFIED");
         }
+    }
+
+    public void getAllIP(PluginCall call) {
+      JSObject result = new JSObject();
+      int i = 0;
+      try {
+        List<NetworkInterface> interfaces = Collections.list(NetworkInterface.getNetworkInterfaces());
+        for (NetworkInterface intf : interfaces) {
+          List<InetAddress> addrs = Collections.list(intf.getInetAddresses());
+          for (InetAddress addr : addrs) {
+            if (!addr.isLoopbackAddress()) {
+              String sAddr = addr.getHostAddress();
+              boolean isIPv4 = sAddr.indexOf(':')<0;
+              if (isIPv4) {
+                i++;
+                result.put(Integer.toString(i), sAddr);
+              }
+            }
+          }
+        }
+        call.success(result);
+      } catch (Exception ignored) {
+        call.reject("error");
+      }
     }
 
     public void getSSID(PluginCall call) {

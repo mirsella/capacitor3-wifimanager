@@ -3,6 +3,7 @@
 <docgen-index>
 
 * [`getIP()`](#getip)
+* [`getAllIP()`](#getallip)
 * [`getSSID()`](#getssid)
 * [`connect(...)`](#connect)
 * [`connectPrefix(...)`](#connectprefix)
@@ -20,6 +21,19 @@ getIP() => Promise<{ ip: string | null; }>
 ```
 
 **Returns:** <code>Promise&lt;{ ip: string | null; }&gt;</code>
+
+--------------------
+
+
+### getAllIP()
+
+```typescript
+getAllIP() => Promise<string[]>
+```
+
+android only
+
+**Returns:** <code>Promise&lt;string[]&gt;</code>
 
 --------------------
 
